@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/Section";
 import { FinalCTA } from "@/components/site/CTA";
 import baithakImg from "@/assets/tanpura/baithak-gallery-2.png";
@@ -6,7 +7,6 @@ import gallery1 from "@/assets/tanpura/baithak-gallery-1.jpg";
 import gallery2 from "@/assets/tanpura/baithak-gallery-2.png";
 import gallery3 from "@/assets/tanpura/baithak-gallery-3.png";
 import aparajitaPoster from "@/assets/tanpura/aparajita-baithak.png";
-import rabinPoster from "@/assets/tanpura/rabin-baithak.png";
 import { academyStats } from "@/data/tanpura";
 import { Check } from "lucide-react";
 
@@ -30,10 +30,13 @@ export const Route = createFileRoute("/community")({
     ],
     links: [{ rel: "canonical", href: "/community" }],
   }),
+  validateSearch: (search: Record<string, unknown>): { event?: typeof aparajita.id } =>
+    search.event === aparajita.id ? { event: aparajita.id } : {},
   component: CommunityPage,
 });
 
 function CommunityPage() {
+  const { event } = Route.useSearch();
   return (
     <>
       <PageHero
@@ -80,34 +83,100 @@ function CommunityPage() {
         </div>
       </section>
 
-      <Section eyebrow="Baithak Archive" title="Baithaks by year.">
-        <div className="space-y-12">
-          <YearArchive
-            year="2026"
-            posters={[{ src: rabinPoster, alt: "Tanpura House 2026 Baithak poster" }]}
-          />
-          <YearArchive
-            year="2025"
-            posters={[
-              {
-                src: aparajitaPoster,
-                alt: "Aparajita Chakraborty Tanpura House Baithak poster, 2025",
-              },
-            ]}
-          />
-          <YearArchive
-            year="2024"
-            posters={[
-              {
-                src: rabinPoster,
-                alt: "Tanpura House 2024 Baithak poster",
-              },
-            ]}
-          />
-        </div>
-      </Section>
+      <ArchiveGrid event={event} />
 
-      <Section eyebrow="2025 Baithak" title="Aparajita Chakraborty">
+      <FinalCTA />
+    </>
+  );
+}
+
+const archiveYears = ["2026", "2025", "2024"] as const;
+const aparajita = {
+  id: "aparajita-chakraborty",
+  year: "2025",
+  title: "Aparajita Chakraborty",
+  type: "Rabindra Sangeet",
+  poster: aparajitaPoster,
+  photos: [gallery1, gallery2, gallery3],
+} as const;
+
+function ArchiveGrid({ event }: { event?: typeof aparajita.id }) {
+  const [year, setYear] = useState<string>("all");
+  if (event === aparajita.id) {
+    return (
+      <>
+        <div className="container-x pt-8">
+          <Link to="/community" search={{}} className="text-sm underline">
+            ? Back to the Baithak archive
+          </Link>
+        </div>
+        <AparajitaDetails />
+      </>
+    );
+  }
+
+  return (
+    <Section eyebrow="Baithak Archive" title="Explore Baithaks by year.">
+      <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter Baithaks by year">
+        {["all", ...archiveYears].map((filter) => (
+          <button
+            key={filter}
+            type="button"
+            aria-pressed={filter === year}
+            onClick={() => setYear(filter)}
+            className="rounded-sm border border-border px-4 py-2 text-sm text-indigo-deep hover:border-gold aria-pressed:bg-indigo-deep aria-pressed:text-white"
+          >
+            {filter === "all" ? "All years" : filter}
+          </button>
+        ))}
+      </div>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {(year === "all" || year === aparajita.year) && (
+          <Link
+            to="/community"
+            search={{ event: aparajita.id }}
+            className="group overflow-hidden rounded-sm border border-border bg-card hover:border-gold"
+          >
+            <div className="bg-secondary/40 p-4">
+              <img
+                src={aparajita.poster}
+                alt=""
+                loading="lazy"
+                className="h-60 w-full object-contain"
+              />
+            </div>
+            <div className="p-5">
+              <p className="eyebrow">
+                {aparajita.year} ? {aparajita.type}
+              </p>
+              <h3 className="mt-2 font-serif text-2xl text-indigo-deep">{aparajita.title}</h3>
+              <p className="mt-4 text-sm text-indigo-deep group-hover:underline">View Baithak ?</p>
+            </div>
+          </Link>
+        )}
+      </div>
+      {year !== aparajita.year && <UnconfirmedPoster year={year} />}
+    </Section>
+  );
+}
+
+function UnconfirmedPoster({ year }: { year: string }) {
+  return (
+    <aside className="mt-6 rounded-sm border border-dashed border-border p-5 text-sm text-muted-foreground">
+      <p className="font-medium text-indigo-deep">
+        {year === "all" ? "2024 and 2026 archive material" : year + " archive material"}
+      </p>
+      <p className="mt-2">
+        The original archive shows the same poster under both years. Its year needs confirmation.
+      </p>
+    </aside>
+  );
+}
+
+function AparajitaDetails() {
+  return (
+    <>
+      <Section eyebrow="2025 Baithak" title={aparajita.title}>
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <img
@@ -178,7 +247,7 @@ function CommunityPage() {
 
       <Section eyebrow="Baithak Gallery" title="Photographs preserved from the 2025 event page.">
         <div className="grid gap-6 md:grid-cols-3">
-          {[gallery1, gallery2, gallery3].map((src, index) => (
+          {aparajita.photos.map((src, index) => (
             <img
               key={src}
               src={src}
@@ -189,34 +258,6 @@ function CommunityPage() {
           ))}
         </div>
       </Section>
-
-      <FinalCTA />
     </>
-  );
-}
-
-function YearArchive({ year, posters }: { year: string; posters: { src: string; alt: string }[] }) {
-  return (
-    <div>
-      <div className="mb-5 flex items-center gap-4">
-        <h3 className="font-serif text-3xl text-indigo-deep">{year}</h3>
-        <span className="h-px flex-1 bg-border" />
-      </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {posters.map((poster) => (
-          <figure
-            key={poster.alt}
-            className="overflow-hidden rounded-sm border border-border bg-card p-3"
-          >
-            <img
-              src={poster.src}
-              alt={poster.alt}
-              loading="lazy"
-              className="h-[30rem] w-full object-contain"
-            />
-          </figure>
-        ))}
-      </div>
-    </div>
   );
 }

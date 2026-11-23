@@ -1,0 +1,49 @@
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:var(--ivory);font-size:15px}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.shell{min-height:100vh}.sidebar{display:none}.main{max-width:1160px;margin:auto;padding:22px 16px 110px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.eyebrow{letter-spacing:.15em;color:var(--muted);font-size:.7rem;font-weight:800;margin:0 0 5px}h1{font-family:var(--serif);font-size:2rem;font-weight:500;margin:0}h2{font-family:var(--serif);font-size:1.45rem;font-weight:500;margin:0 0 15px}h3{font-size:1rem;margin:0 0 8px}.avatar{border:0;background:var(--sand);color:var(--indigo);border-radius:50%;width:44px;height:44px;font-weight:700}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card,.panel{background:var(--paper);border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 4px 18px #18382906}.card small,.muted{color:var(--muted)}.metric{font-size:1.75rem;font-weight:750;display:block;margin-top:8px}.section{margin-top:22px}.section-head,.toolbar,.item{display:flex;align-items:center;justify-content:space-between;gap:10px}.item{padding:13px 0;border-bottom:1px solid var(--border)}.item:last-child{border-bottom:0}.item-main{min-width:0;flex:1}.item strong{display:block}.item small{color:var(--muted)}.pill{font-size:.75rem;border-radius:999px;padding:5px 9px;background:#eff2ef;color:#57665e;white-space:nowrap}.pill.completed,.pill.paid{background:#e2f3e7;color:#216a40}.pill.pending,.pill.overdue,.pill.exhausted{background:#fff0e7;color:#aa4e27}.pill.scheduled{background:#e9efff;color:#3d64ad}.pill.rescheduled{background:#f4ebff;color:#7b52a4}.btn{background:var(--indigo);color:white;border:1px solid var(--indigo);padding:11px 15px;border-radius:12px;font-weight:650;min-height:42px}.btn.secondary{background:var(--paper);color:var(--indigo);border-color:var(--border)}.btn.danger{background:#a53d2c;border-color:#a53d2c}.btn.small{padding:7px 10px;min-height:34px;font-size:.82rem}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--paper);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);z-index:20;padding:7px 4px max(9px,env(safe-area-inset-bottom))}.nav-btn{border:0;background:transparent;color:var(--muted);padding:7px 2px;font-size:.66rem;display:flex;flex-direction:column;gap:4px;align-items:center;border-radius:10px}.nav-btn .symbol{font-size:1.25rem}.nav-btn.active{color:var(--indigo);background:var(--sand);font-weight:800}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:.83rem;color:var(--muted);font-weight:700}.field input,.field select,.field textarea{border:1px solid var(--border);border-radius:11px;background:var(--paper);padding:11px;width:100%;min-height:43px}.field textarea{min-height:75px}.form-grid{display:grid;grid-template-columns:1fr;gap:0 14px}.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.day-head{text-align:center;color:var(--muted);font-size:.73rem;padding:6px 0}.day{min-height:56px;border:1px solid var(--border);border-radius:9px;background:var(--paper);text-align:left;padding:5px;position:relative;font-size:.8rem}.day.has{background:var(--sand);border-color:var(--border)}.day.selected{outline:2px solid var(--gold)}.dots{display:block;color:var(--earth);font-size:.67rem;margin-top:4px}.two-col{display:grid;grid-template-columns:1fr;gap:16px}.empty{color:var(--muted);padding:18px;text-align:center}.warning{border-left:4px solid #d68c4d;background:#fff7ee;padding:12px;border-radius:9px;margin:10px 0}.success-note{border-left:4px solid #3b9d65;background:#edf8ef;padding:12px;border-radius:9px;margin:10px 0}#notice:not(:empty){padding:12px;border-radius:10px;background:#e5f4e8;margin-bottom:12px}.bar{height:9px;border-radius:10px;background:#edf1ed;overflow:hidden}.bar span{height:100%;background:#3e9465;display:block}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}td,th{padding:12px 8px;border-bottom:1px solid var(--border);text-align:left}th{color:var(--muted)}.muted-sm{font-size:.83rem;color:var(--muted)}.split{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.35rem}.brand small{display:block;font:11px system-ui;color:var(--muted);margin-top:3px}.mark{font-size:2rem}.sidebar-note{font-size:.78rem;color:#b3c6b8;line-height:1.7;margin-top:auto}.spacer{height:12px}@media(min-width:700px){.main{padding:34px 34px 50px}.cards{grid-template-columns:repeat(4,1fr)}.two-col{grid-template-columns:1.2fr 1fr}.form-grid{grid-template-columns:repeat(2,1fr)}.day{min-height:86px;padding:9px}.bottom-nav{display:none}.sidebar{display:flex;position:fixed;inset:0 auto 0 0;width:242px;background:var(--paper);color:white;padding:28px 18px;flex-direction:column;gap:34px}.sidebar nav{display:flex;flex-direction:column;gap:6px}.sidebar .nav-btn{color:var(--indigo);font-size:.9rem;flex-direction:row;justify-content:flex-start;gap:14px;padding:12px;text-align:left}.sidebar .nav-btn.active{background:var(--sand);color:white}.main{margin-left:242px;max-width:none}}
+
+/* Mobile-first student onboarding clarity */
+[hidden]{display:none!important}.conditional-fields{grid-column:1/-1;border:1px solid var(--border);border-radius:14px;padding:10px 14px;margin:8px 0;background:var(--paper)}.field-help{display:block;color:var(--muted);font-size:.8rem;line-height:1.5;margin:5px 0 10px}.weekday-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.weekday-choice{display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--paper);padding:11px;border-radius:10px;font-size:.85rem}.weekday-choice input{width:18px;height:18px;min-height:0;accent-color:var(--indigo)}.weekday-choice span{flex:1}@media(min-width:700px){.weekday-options{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* V1.2: readable mobile-first batch scheduling preview */
+.preview-box{margin-top:16px;border:1px solid var(--border);background:var(--sand);padding:15px;border-radius:14px}.preview-box h3{line-height:1.45}.preview-dates{list-style:none;padding:0;margin:10px 0;display:grid;grid-template-columns:1fr;gap:7px;max-height:310px;overflow-y:auto}.preview-dates li{background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:.9rem}@media(min-width:700px){.preview-dates{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* V1.3 student view */
+.student-role .sidebar,.student-role .bottom-nav{display:none!important}.student-role .main{margin:0 auto;max-width:650px;padding:22px 14px 50px}.student-role .top{gap:12px}.student-role .top h1{font-size:1.65rem}.student-dashboard .student-welcome{background:var(--sand)}.student-dashboard .section{margin-top:14px}.student-dashboard .calendar .day{min-height:54px;text-align:center}.student-dashboard .calendar .dots{font-size:.75rem}.student-storage-note{font-size:.8rem;color:var(--muted);background:var(--sand);padding:12px;border-radius:10px;margin-top:18px}@media(max-width:380px){.student-role .top{align-items:flex-start;flex-direction:column}.student-dashboard .calendar .day{min-height:46px;padding:4px 0}}
+
+/* Online lesson access */
+.zoom-join{display:inline-flex;align-items:center;text-decoration:none;min-height:44px;margin-top:8px;max-width:100%}.meeting-note{display:block;margin-top:8px}.item{flex-wrap:wrap}.item-main{overflow-wrap:anywhere}.conditional-fields input,.conditional-fields select{min-height:44px}
+
+/* Tanpura House brand palette and type */
+:root {
+  --ivory: oklch(0.972 0.018 85);
+  --indigo: oklch(0.245 0.08 270);
+  --gold: oklch(0.72 0.12 80);
+  --earth: oklch(0.38 0.05 50);
+  --ink: oklch(0.22 0.04 270);
+  --paper: oklch(0.985 0.012 85);
+  --sand: oklch(0.93 0.022 85);
+  --muted: oklch(0.46 0.04 60);
+  --border: oklch(0.88 0.02 75);
+  --serif: "Cormorant Garamond", Georgia, serif;
+}
+h1, h2 { color: var(--indigo); }
+h1 { font-size: clamp(2.35rem, 5vw, 3.2rem); }
+h2 { font-size: 1.75rem; line-height: 1.1; }
+.eyebrow { color: var(--earth); font-weight: 600; }
+.top { gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.card, .panel { border-radius: 0.25rem; box-shadow: 0 4px 18px rgb(40 30 20 / 0.06); }
+.btn { border-radius: 999px; color: var(--ivory); }
+.btn.secondary { color: var(--indigo); }
+.sidebar { border-right: 1px solid var(--border); color: var(--indigo); }
+.sidebar .nav-btn.active { color: var(--indigo); }
+.brand { align-items: flex-start; flex-direction: column; gap: 8px; }
+.brand small { font: 500 0.7rem Inter, system-ui, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+.brand img, .mobile-brand img { display: block; width: 120px; height: auto; }
+.mobile-brand { margin-bottom: 20px; }
+.storage-note { color: var(--muted); font-size: 0.82rem; margin: 0 0 20px; }
+.student-role .storage-note { display: none; }
+.student-role .top h1 { font-size: 2.15rem; }
+.student-storage-note { padding: 9px 12px; border-radius: 0.25rem; }
+@media (min-width: 700px) {
+  .mobile-brand { display: none; }
+  .student-role .mobile-brand { display: block; }
+}

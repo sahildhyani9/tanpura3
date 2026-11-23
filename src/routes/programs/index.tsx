@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Section } from "@/components/site/Section";
 import { FinalCTA } from "@/components/site/CTA";
-import foundationalImg from "@/assets/tanpura/foundational-card.png";
-import intermediateImg from "@/assets/tanpura/intermediate-card.png";
-import advancedImg from "@/assets/tanpura/advanced-card.png";
-import onlineImg from "@/assets/tanpura/online-detail.png";
-import offlineImg from "@/assets/tanpura/offline-detail.png";
-import residencyImg from "@/assets/tanpura/residency-detail.png";
+import foundationalImg from "@/assets/tanpura/foundational-learner-journey.webp";
+import intermediateImg from "@/assets/tanpura/intermediate-learner-journey.webp";
+import advancedImg from "@/assets/tanpura/advanced-learner-journey.webp";
+import onlineImg from "@/assets/tanpura/learning-format-online.webp";
+import offlineImg from "@/assets/tanpura/learning-format-offline.webp";
+import residencyImg from "@/assets/tanpura/learning-format-residency.webp";
 import { offlinePolicy, onlinePolicy } from "@/data/tanpura";
 import { Check } from "lucide-react";
 
@@ -164,7 +164,7 @@ function FormatCard({
 }) {
   const content = (
     <>
-      <img src={image} alt="" className="aspect-[3/2] w-full object-cover" />
+      <img src={image} alt="" className="aspect-[4/3] w-full object-cover" />
       <div className="p-7">
         <h3 className="font-serif text-2xl text-indigo-deep">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>

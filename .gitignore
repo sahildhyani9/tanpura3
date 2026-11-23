@@ -54,3 +54,6 @@ desktop.ini
 
 # Local tool caches
 .lovable/
+
+# Local Nitro/Cloudflare deployment metadata
+/.wrangler/
